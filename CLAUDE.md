@@ -38,6 +38,19 @@ python3 -m http.server 8080 --directory build/web
 ```
 If `godot` isn't on PATH, install Godot 4.3+ (standard, not .NET) and its export templates first.
 
+## Build pipeline and play link
+Same pipeline as phone-pong and yes-and.
+- `.github/workflows/deploy.yml` runs the tests, then builds the web version on
+  every push to `main` and publishes it to GitHub Pages. A failing test stops
+  the build.
+- After each change: push to `main`, watch the Actions run until it passes
+  (fix it if it doesn't), then send Samuel the play link with one line on what
+  changed and what to playtest. Safari may need a pull-to-refresh.
+- End every reply with a short summary of the last build (passed or failed,
+  what it contained, any Godot errors), then the play link on the very last
+  line: https://humble-house-studios.github.io/proof-hand/
+- If GitHub Pages isn't on yet: repo → **Settings → Pages → Source: GitHub Actions.**
+
 ## Done-definition for every milestone
 1. `tests/run_tests.gd` passes with zero failures.
 2. Web export succeeds with no errors.
