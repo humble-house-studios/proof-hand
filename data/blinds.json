@@ -1,0 +1,12 @@
+{
+  "start_money": 4,
+  "plays_per_blind": 4,
+  "discards_per_blind": 3,
+  "hand_size": 8,
+  "reward": {"lemma": 3, "theorem": 4, "boss": 5, "per_unused_play": 1, "interest_per": 5, "interest_cap": 5},
+  "antes": [
+    {"lemma": 300,  "theorem": 450,  "boss": {"id": "sphere",    "name": "The Sphere Problem",   "target": 600,  "rule": "infinity_zero_chips", "text": "∞ cards score 0 chips", "taunt": "Already solved. Consider it a warm-up."}},
+    {"lemma": 800,  "theorem": 1200, "boss": {"id": "speed",     "name": "The Speed of Knowing", "target": 1600, "rule": "plays_3",             "text": "Only 3 Plays"}},
+    {"lemma": 2000, "theorem": 3000, "boss": {"id": "hum",       "name": "The Hum of the Primes","target": 4000, "rule": "primes_only_chips",   "text": "Only prime-rank cards score chips"}}
+  ]
+}

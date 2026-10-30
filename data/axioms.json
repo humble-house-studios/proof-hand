@@ -1,0 +1,17 @@
+[
+  {"id": "peano",            "name": "Peano",            "price": 4, "text": "+4 Mult", "effect": {"type": "add_mult", "value": 4}},
+  {"id": "euclids_fifth",    "name": "Euclid's Fifth",   "price": 5, "text": "Same Field hands: +12 Mult", "effect": {"type": "add_mult", "value": 12, "condition": {"hand": "same_field"}}},
+  {"id": "prime_mover",      "name": "Prime Mover",      "price": 5, "text": "Each scoring prime card: +3 Mult", "effect": {"type": "add_mult_per_card", "value": 3, "condition": {"card": "prime"}}},
+  {"id": "fermats_margin",   "name": "Fermat's Margin",  "price": 4, "text": "Hands of 3 or fewer cards: +30 Chips", "effect": {"type": "add_chips", "value": 30, "condition": {"max_cards": 3}}},
+  {"id": "incompleteness",   "name": "Incompleteness",   "price": 7, "text": "Last Play of a blind: x3 Mult", "effect": {"type": "x_mult", "value": 3, "condition": {"last_play": true}}},
+  {"id": "zeno",             "name": "Zeno",             "price": 5, "text": "+2 Mult per Discard used this blind", "effect": {"type": "add_mult_per_stat", "value": 2, "stat": "discards_used"}},
+  {"id": "pythagoras",       "name": "Pythagoras",       "price": 5, "text": "Trinity hands: +20 Mult", "effect": {"type": "add_mult", "value": 20, "condition": {"hand": "trinity"}}},
+  {"id": "cantor",           "name": "Cantor",           "price": 6, "text": "∞ cards count as any rank for Sequences", "effect": {"type": "rule", "rule": "infinity_wild_sequence"}},
+  {"id": "eulers_identity",  "name": "Euler's Identity", "price": 6, "text": "If scoring ranks sum to exactly 10: x2 Mult", "effect": {"type": "x_mult", "value": 2, "condition": {"rank_sum": 10}}},
+  {"id": "fibonacci",        "name": "Fibonacci",        "price": 4, "text": "Each scoring 1, 2, 3, 5 or 8: +8 Chips", "effect": {"type": "add_chips_per_card", "value": 8, "condition": {"card_ranks": [1, 2, 3, 5, 8]}}},
+  {"id": "grant_writer",     "name": "Grant Writer",     "price": 5, "text": "+$2 at cash out", "effect": {"type": "cash_out_bonus", "value": 2}},
+  {"id": "erdos_number",     "name": "Erdős Number",     "price": 6, "text": "+2 Mult per Axiom owned", "effect": {"type": "add_mult_per_stat", "value": 2, "stat": "axioms_owned"}},
+  {"id": "riemanns_hum",     "name": "Riemann's Hum",    "price": 8, "text": "Each scoring prime card: x1.5 Mult", "locked": true, "effect": {"type": "x_mult_per_card", "value": 1.5, "condition": {"card": "prime"}}},
+  {"id": "mobius",           "name": "Möbius",           "price": 8, "text": "Symmetry hands: x3 Mult", "locked": true, "effect": {"type": "x_mult", "value": 3, "condition": {"hand": "symmetry"}}},
+  {"id": "occams_razor",     "name": "Occam's Razor",    "price": 6, "text": "Lone Term and Identity hands: x2 Mult", "locked": true, "effect": {"type": "x_mult", "value": 2, "condition": {"hand_in": ["lone_term", "identity"]}}}
+]

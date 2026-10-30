@@ -1,0 +1,6 @@
+[
+  {"id": "substitution",  "name": "Substitution",  "price": 3, "text": "Change up to 2 selected cards' rank by ±1", "effect": {"type": "shift_rank", "max_cards": 2}},
+  {"id": "generalize",    "name": "Generalize",    "price": 3, "text": "Convert up to 3 selected cards to the Field of the first selected", "effect": {"type": "set_field", "max_cards": 3}},
+  {"id": "infinity_map",  "name": "Infinity Map",  "price": 3, "text": "Turn 1 selected card into ∞", "effect": {"type": "set_infinity", "max_cards": 1}},
+  {"id": "sorry",         "name": "sorry",         "price": 6, "shop_chance": 0.15, "text": "Clear the current non-boss blind. +1 Debt (boss targets +25% each).", "effect": {"type": "skip_blind", "debt": 1, "debt_boss_multiplier": 0.25}}
+]

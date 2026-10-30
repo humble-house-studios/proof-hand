@@ -1,0 +1,11 @@
+[
+  {"id": "infinite_series", "name": "Infinite Series", "priority": 1, "chips": 100, "mult": 8, "level_chips": 40, "level_mult": 4},
+  {"id": "tautology",       "name": "Tautology",       "priority": 2, "chips": 60,  "mult": 7, "level_chips": 30, "level_mult": 3},
+  {"id": "symmetry",        "name": "Symmetry",        "priority": 3, "chips": 50,  "mult": 5, "level_chips": 30, "level_mult": 3},
+  {"id": "same_field",      "name": "Same Field",      "priority": 4, "chips": 35,  "mult": 4, "level_chips": 15, "level_mult": 2},
+  {"id": "sequence",        "name": "Sequence",        "priority": 5, "chips": 30,  "mult": 4, "level_chips": 30, "level_mult": 3},
+  {"id": "trinity",         "name": "Trinity",         "priority": 6, "chips": 30,  "mult": 3, "level_chips": 20, "level_mult": 2},
+  {"id": "double_identity", "name": "Double Identity", "priority": 7, "chips": 20,  "mult": 2, "level_chips": 20, "level_mult": 1},
+  {"id": "identity",        "name": "Identity",        "priority": 8, "chips": 10,  "mult": 2, "level_chips": 15, "level_mult": 1},
+  {"id": "lone_term",       "name": "Lone Term",       "priority": 9, "chips": 5,   "mult": 1, "level_chips": 10, "level_mult": 1}
+]

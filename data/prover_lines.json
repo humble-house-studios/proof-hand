@@ -1,0 +1,10 @@
+{
+  "verified": ["Verified.", "Correct. Unremarkable.", "It holds.", "Accepted.", "Fine."],
+  "novel": ["Novel. Recording.", "I have not seen that before.", "Interesting. Noted.", "That one goes in the Notebook."],
+  "conjecture_propose": ["I suspect a {hand} over {fields} is significant.", "Find me a {hand} over {fields}. I have a hunch.", "Unproven: {hand} over {fields}. Prove it."],
+  "conjecture_proven": ["Proven. I was right to suspect it.", "QED. Unlocking.", "Confirmed. You may continue to exist."],
+  "blind_failed": ["Insufficient.", "The proof does not close.", "Retracted."],
+  "sorry_used": ["I saw that.", "Peer review will see that too.", "Noted. Unfavorably."],
+  "run_won": ["All three. I did not expect that.", "Remarkable. Publish."],
+  "run_lost": ["Again.", "The Notebook remembers what you found."]
+}
