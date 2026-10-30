@@ -37,3 +37,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "M0 scaffold"
 horizontal_alignment = 1
+
+[node name="Deal" type="Button" parent="Center"]
+custom_minimum_size = Vector2(480, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 56
+text = "Deal 5"

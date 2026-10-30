@@ -6,11 +6,13 @@ const DATA_FILES: Array[String] = [
 ]
 
 var data: Dictionary = {}
+var hand_types: Array[HandType] = []
 
 
 func _ready() -> void:
 	for key in DATA_FILES:
 		data[key] = load_json("res://data/%s.json" % key)
+	hand_types = HandType.load_all("res://data/hand_types.json")
 
 
 static func load_json(path: String) -> Variant:
