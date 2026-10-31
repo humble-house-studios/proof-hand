@@ -51,7 +51,9 @@ func _ready() -> void:
 	theme.default_font_size = 40
 	_build()
 	# Controller / arrow keys: a frame that moves between buttons, A presses.
-	add_child(preload("res://scripts/ui/pad_cursor.gd").new())
+	var pad: Node = preload("res://scripts/ui/pad_cursor.gd").new()
+	pad.guide = [["DPAD", "Move over the cards"], ["A", "Pick / unpick a card"], ["X", "Play"], ["Y", "Discard"], ["RB", "Sort"]]
+	add_child(pad)
 	get_viewport().size_changed.connect(_apply_safe_area)
 	_apply_safe_area()
 	_new_blind()
