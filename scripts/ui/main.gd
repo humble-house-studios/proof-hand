@@ -50,6 +50,8 @@ func _ready() -> void:
 	theme.default_font = body
 	theme.default_font_size = 40
 	_build()
+	# Controller / arrow keys: a frame that moves between buttons, A presses.
+	add_child(preload("res://scripts/ui/pad_cursor.gd").new())
 	get_viewport().size_changed.connect(_apply_safe_area)
 	_apply_safe_area()
 	_new_blind()
@@ -129,13 +131,16 @@ func _build() -> void:
 	col.add_child(buttons)
 	_play_button = _button("PLAY", Color(0.2, 0.42, 0.75), 1.6)
 	_play_button.pressed.connect(_on_play)
+	_play_button.set_meta("pad_button", JOY_BUTTON_X)
 	buttons.add_child(_play_button)
 	_discard_button = _button("DISCARD", Color(0.62, 0.25, 0.24), 1.2)
 	_discard_button.pressed.connect(_on_discard)
+	_discard_button.set_meta("pad_button", JOY_BUTTON_Y)
 	buttons.add_child(_discard_button)
 	_sort_button = _button("SORT\nRANK", Color(0.25, 0.3, 0.28), 0.8)
 	_sort_button.add_theme_font_size_override("font_size", 34)
 	_sort_button.pressed.connect(_on_sort)
+	_sort_button.set_meta("pad_button", JOY_BUTTON_RIGHT_SHOULDER)
 	buttons.add_child(_sort_button)
 
 	_seed_label = _label("", 26, Color(1, 1, 1, 0.3))
@@ -189,6 +194,7 @@ func _build_overlay() -> void:
 	v.add_child(_overlay_text)
 	var again := _button("NEW BLIND", Color(0.2, 0.42, 0.75), 1.0)
 	again.pressed.connect(_new_blind)
+	again.set_meta("pad_button", JOY_BUTTON_START)
 	v.add_child(again)
 
 

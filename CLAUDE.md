@@ -24,6 +24,8 @@ A Balatro-style roguelike deckbuilder with a math-breakthrough skin, built in **
 - Build UI with Containers and anchors; no hard-coded absolute positions for layout.
 - Touch targets ≥ 120 px. Keep important UI inside safe areas.
 - Renderer must stay **Compatibility** (web export requirement).
+- Controller: `scripts/ui/pad_cursor.gd` (shared with the other office games) frames
+  the buttons; D-pad moves, A presses, X Play, Y Discard, RB Sort, Start new blind.
 
 ## Commands
 ```bash
