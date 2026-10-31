@@ -10,3 +10,8 @@ One line per judgment call on an ambiguous PRD rule. Newest at bottom.
 - 2026-10-30 — Lone Term ties (equal highest rank) score the earliest card in play order.
 - 2026-10-30 — Symmetry requires exactly 5 cards (3-card palindromes stay an open question, PRD §13).
 - 2026-10-30 — Scorer keeps Mult as float (for future ×1.5 effects); score = floor(chips × mult).
+- 2026-10-31 — M2 hand is two rows of four cards instead of a fan: bigger touch targets (232×360) with one thumb; a fan can come with the M6 art pass.
+- 2026-10-31 — Bundled DejaVu Sans (fonts/, free license in fonts/DejaVu-LICENSE.txt): Godot's default font has no ℕ △ ∂ ⊢ ∞, and the web build can't fall back to system fonts.
+- 2026-10-31 — M2's one hard-coded blind is Ante 1's Lemma (target, Plays, Discards and hand size read from data/blinds.json); each new blind gets a fresh seed, shown at the bottom.
+- 2026-10-31 — If the deck runs dry mid-blind the hand stays short (no reshuffle), as in Balatro.
+- 2026-10-31 — Rank sort is high→low then Field; Field sort is ℕ△∂⊢ then high→low. Sorting never changes the tap order of selected cards.
