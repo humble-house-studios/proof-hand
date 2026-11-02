@@ -18,6 +18,11 @@ var sort_mode: SortMode = SortMode.RANK
 ## The last Play's result, for the score readout (null before the first Play).
 var last_result: HandEvaluator.Result
 var last_breakdown: Scorer.Breakdown
+## How a Play is scored (the run sets it: Axioms, boss rules, the Prover).
+## Default: the plain hand.
+var score_fn: Callable = func(r: HandEvaluator.Result) -> Scorer.Breakdown: return Scorer.score(r)
+## Discards used this blind (Zeno).
+var discards_used := 0
 
 var _deck: Deck
 var _evaluator: HandEvaluator
@@ -97,7 +102,7 @@ func play() -> Scorer.Breakdown:
 	if not can_play():
 		return null
 	last_result = preview()
-	last_breakdown = Scorer.score(last_result)
+	last_breakdown = score_fn.call(last_result)
 	score += last_breakdown.total
 	plays_left -= 1
 	_remove_selected()
@@ -110,6 +115,7 @@ func discard() -> bool:
 	if not can_discard():
 		return false
 	discards_left -= 1
+	discards_used += 1
 	_remove_selected()
 	_refill()
 	return true
@@ -118,6 +124,11 @@ func discard() -> bool:
 ## Sets the sort mode and reorders the hand (selection order is unchanged).
 func sort_by(mode: SortMode) -> void:
 	sort_mode = mode
+	_sort()
+
+
+## After a Lemma changes cards in hand: re-sort, keep the selection.
+func refresh_order() -> void:
 	_sort()
 
 

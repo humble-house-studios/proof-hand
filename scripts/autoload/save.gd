@@ -10,6 +10,7 @@ var notebook: Dictionary = {
 	"unlocked_axioms": [],
 	"total_runs": 0,
 	"best_score": 0,
+	"runs_won": 0,
 }
 
 

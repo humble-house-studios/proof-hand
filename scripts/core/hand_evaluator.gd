@@ -14,6 +14,8 @@ class Result:
 
 
 var _types: Array[HandType]
+## Cantor (an Axiom): ∞ cards count as any rank for Sequences.
+var infinity_wild := false
 
 
 ## types must be sorted by priority (HandType.load_all does this).
@@ -40,7 +42,7 @@ func _match(id: String, cards: Array[Card]) -> Variant:
 	var groups := _rank_groups(cards)
 	match id:
 		"infinite_series":
-			return cards if _is_sequence(cards) and _is_one_field(cards) else null
+			return cards if _is_sequence(cards, infinity_wild) and _is_one_field(cards) else null
 		"tautology":
 			return _cards_in_groups(cards, groups, 4, 1)
 		"symmetry":
@@ -48,7 +50,7 @@ func _match(id: String, cards: Array[Card]) -> Variant:
 		"same_field":
 			return cards if cards.size() == MAX_CARDS and _is_one_field(cards) else null
 		"sequence":
-			return cards if _is_sequence(cards) else null
+			return cards if _is_sequence(cards, infinity_wild) else null
 		"trinity":
 			return _cards_in_groups(cards, groups, 3, 1)
 		"double_identity":
@@ -87,9 +89,20 @@ static func _cards_in_groups(cards: Array[Card], groups: Dictionary, min_count: 
 
 
 ## 5 distinct consecutive ranks, any order. ∞ is rank 10 (above 9, never low).
-static func _is_sequence(cards: Array[Card]) -> bool:
+## wild: ∞ fills any gap (Cantor).
+static func _is_sequence(cards: Array[Card], wild := false) -> bool:
 	if cards.size() != MAX_CARDS:
 		return false
+	if wild:
+		var fixed: Array[int] = []
+		for c in cards:
+			if c.rank != Card.INFINITY:
+				if c.rank in fixed:
+					return false
+				fixed.append(c.rank)
+		if fixed.size() < MAX_CARDS:
+			fixed.sort()
+			return fixed.is_empty() or fixed.back() - fixed.front() < MAX_CARDS
 	var ranks := cards.map(func(c: Card) -> int: return c.rank)
 	ranks.sort()
 	for i in range(1, ranks.size()):

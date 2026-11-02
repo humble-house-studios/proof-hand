@@ -5,7 +5,7 @@
 **Genre:** Roguelike poker-style deckbuilder (Balatro-like) with a math-breakthrough skin
 **Engine:** Godot 4.3+ (GDScript), Compatibility renderer
 **Platforms:** Mobile portrait first (tested as a web build in Safari). Steam landscape later.
-**Status:** Pre-production MVP
+**Status:** MVP playable: M1–M6 built (2026-11-02). Balance: `tools/tune.gd`; screenshots: `tools/shot.gd`.
 
 ---
 
