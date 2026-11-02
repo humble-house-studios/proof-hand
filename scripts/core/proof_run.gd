@@ -38,6 +38,11 @@ var hands_played := 0
 ## The Library's stock this visit: [{kind: axiom/lemma/study, ...}], and the
 ## reroll price.
 var stock: Array = []
+## Office relics (set by the office's Loot Machine link at run start):
+## extra Plays / Discards every blind, extra Mult on every hand.
+var bonus_plays := 0
+var bonus_discards := 0
+var bonus_mult := 0.0
 var reroll_price := REROLL_PRICE
 var blind: Blind
 ## The Notebook's signatures (shared with the save): a signature not in here
@@ -92,11 +97,12 @@ func start_blind() -> Blind:
 	var plays := int(data.blinds.plays_per_blind)
 	if sp.rule == "plays_3":
 		plays = 3
+	plays += bonus_plays
 	_evaluator.infinity_wild = AxiomEffects.has_rule(axioms, "infinity_wild_sequence")
 	var deck_rng := RandomNumberGenerator.new()
 	deck_rng.seed = rng.randi()
 	blind = Blind.new(sp.name, sp.target, Deck.new(deck_rng, deck_cards), _evaluator,
-			int(data.blinds.hand_size), plays, int(data.blinds.discards_per_blind))
+			int(data.blinds.hand_size), plays, int(data.blinds.discards_per_blind) + bonus_discards)
 	blind.score_fn = score
 	blind.start()
 	return blind
@@ -113,6 +119,7 @@ func score(result: HandEvaluator.Result) -> Scorer.Breakdown:
 		"played": blind.selected.size() if blind and not blind.selected.is_empty() else result.scoring.size(),
 		"novel": not seen.has(sig),
 		"conjecture": sig == conjecture,
+		"relic_mult": bonus_mult,
 	}
 	return Scorer.score(result, int(levels.get(result.hand_type.id, 1)), axioms, ctx)
 

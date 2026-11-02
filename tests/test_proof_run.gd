@@ -17,6 +17,7 @@ func run() -> Array[String]:
 	_test_lemmas()
 	_test_prover()
 	_test_seeded()
+	_test_office_relics()
 	return _fails
 
 
@@ -150,3 +151,16 @@ func _eq(got, want, what: String) -> void:
 
 static func _json(path: String) -> Variant:
 	return JSON.parse_string(FileAccess.get_file_as_string(path))
+
+
+func _test_office_relics() -> void:
+	var r := _run()
+	r.bonus_plays = 1
+	r.bonus_discards = 1
+	r.bonus_mult = 2.0
+	var b := r.start_blind()
+	_eq(b.plays_left, 5, "Chalk Nub: +1 Play")
+	_eq(b.discards_left, 4, "Eraser: +1 Discard")
+	r.seen = {"identity|ℕ,△": 1}
+	var res := HandEvaluator.new(_types).evaluate(C.hand("7N 7G"))
+	_eq(r.score(res).total, 24 * 4, "Lucky Infinity: +2 Mult")

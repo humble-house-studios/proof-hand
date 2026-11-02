@@ -41,6 +41,8 @@ static func score(result: HandEvaluator.Result, level: int = 1, axioms: Array = 
 		if step.is_empty():
 			continue
 		_add(b, step)
+	if float(ctx.get("relic_mult", 0.0)) > 0.0:
+		_add(b, {"source": "OFFICE RELIC", "chips": 0, "mult": float(ctx.relic_mult), "xmult": 0.0, "kind": "axiom"})
 	if ctx.get("novel", false):
 		_add(b, {"source": "NOVEL", "chips": 0, "mult": NOVEL_MULT, "xmult": 0.0, "kind": "prover"})
 	if ctx.get("conjecture", false):
